@@ -1,0 +1,6 @@
+.env
+sessions.json
+node_modules/
+*.log
+.claude-phone/
+.DS_Store

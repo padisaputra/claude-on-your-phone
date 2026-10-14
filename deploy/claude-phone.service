@@ -1,0 +1,32 @@
+[Unit]
+Description=Claude Code agent (Telegram front-end)
+After=network-online.target
+Wants=network-online.target
+# Never give up restarting after a crash loop; it waits RestartSec between tries.
+StartLimitIntervalSec=0
+
+[Service]
+User=__BOT_USER__
+WorkingDirectory=__APP_DIR__
+EnvironmentFile=__APP_DIR__/.env
+Environment=PATH=/home/__BOT_USER__/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=CLAUDE_PHONE_APP=__APP_DIR__
+ExecStart=__NODE__ __APP_DIR__/bot.js
+Restart=on-failure
+RestartSec=5
+# Exit code 78 means "your .env is incomplete". Don't loop, wait for a human.
+RestartPreventExitStatus=78
+# Stop or restart only the bot itself. Background workers are detached and keep
+# running, so updating or restarting the bot never kills a job half-way.
+KillMode=process
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/__BOT_USER__
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target
