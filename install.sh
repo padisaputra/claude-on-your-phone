@@ -102,7 +102,7 @@ copy_app() {
 ask_token() {
   TOKEN="$(env_get TELEGRAM_BOT_TOKEN)"
   valid_token "$TOKEN" || TOKEN="${TELEGRAM_BOT_TOKEN:-}"
-  [ -n "$TOKEN" ] || { say "Telegram bot token"; info "In Telegram, message @BotFather, send /newbot, and copy the token it gives you."; }
+  [ -n "$TOKEN" ] || { say "Telegram bot token"; info "In Telegram, message @BotFather, send /newbot, name the bot Atlas, and copy the token it gives you."; }
   while :; do
     [ -n "$TOKEN" ] || ask TOKEN "Paste the bot token:"
     TOKEN="${TOKEN//[[:space:]]/}"

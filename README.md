@@ -38,7 +38,7 @@ It is Claude Code running 24/7 on a small Linux server. You message it in Telegr
 
 You need a VPS running Ubuntu or Debian (2 GB RAM is plenty) with SSH access, a Claude Pro or Max plan (or an API key), and a Telegram account. About 10 minutes.
 
-**1. Make a Telegram bot.** In Telegram, message `@BotFather`, send `/newbot`, follow the prompts, and keep the token it gives you.
+**1. Make a Telegram bot.** In Telegram, message `@BotFather`, send `/newbot`, name the bot Atlas, and keep the token it gives you.
 
 **2. Get the code on your server.**
 
